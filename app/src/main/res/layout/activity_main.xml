@@ -1,0 +1,210 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                tools:context=".MainActivity"
+                android:id="@+id/relativeLayout">
+
+    <TextView
+        android:text="@string/enter_bp_reading_prompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/enterBPTextView"
+        android:textSize="21sp"
+        android:textColor="#ffff2f52"
+        android:layout_below="@+id/lastSystolicEditText"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bp_check_status_button_prompt"
+        android:id="@+id/bpCheckButton"
+        android:background="@android:color/holo_green_light"
+        android:layout_above="@+id/resetUIButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/reset_UI_button_prompt"
+        android:id="@+id/resetUIButton"
+        android:background="@android:color/holo_red_light"
+        android:layout_above="@+id/storeReadingButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/store_button_prompt"
+        android:id="@+id/storeReadingButton"
+        android:background="@android:color/holo_blue_light"
+        android:layout_above="@+id/displayReadingsButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/display_stored_readings_button_prompt"
+        android:id="@+id/displayReadingsButton"
+        android:background="@android:color/holo_green_light"
+        android:layout_above="@+id/clearWeeklyReadingsButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/systolic_prompt"
+        android:id="@+id/systolicTextView"
+        android:textSize="20sp"
+        android:textColor="#ff3620ff"
+        android:layout_below="@+id/systolicEditText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/diastolic_prompt"
+        android:id="@+id/diastolicTextView"
+        android:textSize="20sp"
+        android:textColor="#ff5641ff"
+        android:layout_below="@+id/diastolicEditText"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/systolicEditText"
+        android:gravity="center_horizontal"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_toStartOf="@+id/textView2"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/diastolicEditText"
+        android:gravity="center_horizontal"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_toRightOf="@+id/textView2"
+        android:layout_toStartOf="@+id/textView"
+        android:layout_toLeftOf="@+id/textView"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/last_reading_prompt"
+        android:id="@+id/lastReadingLabel"
+        android:textSize="14sp"
+        android:textColor="#ff3620ff"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/diastolicEditText"
+        android:textIsSelectable="false"
+        android:layout_alignRight="@+id/systolicTextView"
+        android:layout_alignEnd="@+id/systolicTextView"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lastSystolicEditText"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_alignTop="@+id/lastReadingLabel"
+        android:layout_alignBottom="@+id/lastDiastolicEditText"
+        android:layout_toRightOf="@+id/lastReadingLabel"
+        android:gravity="center_horizontal"
+        android:layout_toStartOf="@+id/textView"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/"
+        android:id="@+id/textView"
+        android:textSize="30sp"
+        android:layout_alignTop="@+id/lastDiastolicEditText"
+        android:layout_toLeftOf="@+id/lastDiastolicEditText"
+        android:layout_toStartOf="@+id/lastDiastolicEditText"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/lastDiastolicEditText"
+        android:layout_alignTop="@+id/lastReadingLabel"
+        android:gravity="center_horizontal"
+        android:layout_alignLeft="@+id/hideButton"
+        android:layout_alignStart="@+id/hideButton"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/"
+        android:id="@+id/textView2"
+        android:textSize="40sp"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/enterBPTextView"
+        android:layout_toRightOf="@+id/systolicTextView"
+        android:layout_toEndOf="@+id/systolicTextView"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/clear_weekly_readings"
+        android:id="@+id/clearWeeklyReadingsButton"
+        android:background="@android:color/holo_red_light"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reading_count_prompt"
+        android:id="@+id/readingCountTextView"
+        android:layout_marginTop="29dp"
+        android:layout_below="@+id/systolicTextView"
+        android:layout_alignRight="@+id/diastolicEditText"
+        android:layout_alignEnd="@+id/diastolicEditText"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/readingCountEditText"
+        android:gravity="center_horizontal"
+        android:layout_alignBottom="@+id/readingCountTextView"
+        android:layout_alignLeft="@+id/hideButton"
+        android:layout_alignStart="@+id/hideButton"
+        android:layout_alignRight="@+id/enterBPTextView"
+        android:layout_alignEnd="@+id/enterBPTextView"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=">>>"
+        android:id="@+id/hideButton"
+        android:layout_above="@+id/diastolicTextView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/diastolicTextView"
+        android:background="@android:color/holo_green_light"
+        android:layout_toRightOf="@+id/diastolicTextView"
+        android:textSize="36sp"/>
+
+</RelativeLayout>

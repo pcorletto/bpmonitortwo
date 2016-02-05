@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BPMonitor2</string>
+    <string name="last_reading_prompt">Last Reading:</string>
+    <string name="enter_bp_reading_prompt">Enter Blood Pressure Reading</string>
+    <string name="systolic_prompt">SYSTOLIC</string>
+    <string name="diastolic_prompt">DIASTOLIC</string>
+    <string name="bp_check_status_button_prompt">Check individual day reading</string>
+    <string name="store_button_prompt">Store Individual day Reading</string>
+    <string name="display_stored_readings_button_prompt">Display Stored weekly Readings</string>
+    <string name="reset_UI_button_prompt">Re-enter individual reading</string>
+    <string name="clear_weekly_readings">Clear weekly readings</string>
+    <string name="action_settings">Settings</string>
+    <string name="BP_PREF_FILE">BP_PREF_FILE</string>
+    <string name="SYSTOLIC_READING">SYSTOLIC_READING</string>
+    <string name="DIASTOLIC_READING">DIASTOLIC_READING</string>
+    <string name="READING_COUNT">READING_COUNT</string>
+    <string name="WEEKLY_READINGS">WEEKLY_READINGS</string>
+    <string name="SYSTOLIC_DIASTOLIC_STRING">SYSTOLIC_DIASTOLIC_STRING</string>
+    <string name="LANGUAGE_PREF">LANGUAGE_PREF</string>
+    <string name="title_activity_display">DisplayActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="return_main_prompt">RETURN TO MAIN SCREEN</string>
+    <string name="weekly_readings">weekly_readings</string>
+    <string name="reading_count_prompt">Out of 7 days, you have stored:</string>
+    <string name="English">English</string>
+    <string name="Espanol">Espanol</string>
+    <string name="empty_reading_alert">You need to enter a reading!</string>
+    <string name="max_alert">Max is 999!</string>
+    <string name="keeper_full_message">Keeper is full. It can store a maximum of 7 days! Clear it first.</string>
+    <string name="empty_keeper_alert">You do not have any stored readings to display yet. Store some first!</string>
+    <string name="your_blood_pressure_is">Your blood pressure is: </string>
+    <string name="high_pressure_toast">high</string>
+    <string name="normal_pressure_toast">normal</string>
+    <string name="low_pressure_toast">low</string>
+    <string name="sys_low_dias_high_toast"> systolic low and diastolic high</string>
+    <string name="sys_high_dias_low_toast">systolic high and diastolic low</string>
+    <string name="yes_string">YES</string>
+    <string name="no_string">NO</string>
+    <string name="clear_readings_confirm_message">CLEAR ALL READINGS STORED THIS WEEK</string>
+    <string name="clear_readings_confirm_question">Are you sure you want to clear them?</string>
+    <string name="display_array">display_array</string>
+    <string  name="on_back_pressed_alert">Press again to close app</string>
+    <string name="no_readings_data">There are no readings to display</string>
+    <string name="is_empty">is_empty</string>
+
+
+</resources>
