@@ -20,12 +20,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/systolicLabel"
+        android:layout_alignTop="@+id/systolicImageView"
+        android:layout_alignBottom="@+id/systolicImageView"
+        android:layout_alignLeft="@+id/systolicImageView"
+        android:layout_alignRight="@+id/systolicImageView"
+        android:gravity="center"
+        android:textColor="#ff4e31ff"
+        android:textSize="15sp"
+        tools:text="120"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/systolicImageView"
+        android:src="@drawable/bg_reading"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/dateTimeLabel"
         android:layout_toEndOf="@+id/dateTimeLabel"
-        android:textColor="#ffffffff"
-        android:textSize="20sp"
-        tools:text="120"/>
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -49,4 +62,6 @@
         android:textColor="#ffffffff"
         android:textSize="20sp"
         tools:text="normal"/>
+
+
 </RelativeLayout>
