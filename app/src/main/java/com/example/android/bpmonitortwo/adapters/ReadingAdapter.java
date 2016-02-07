@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.bpmonitortwo.R;
@@ -53,7 +54,8 @@ public class ReadingAdapter extends BaseAdapter {
             holder.dateTimeLabel = (TextView) convertView.findViewById(R.id.dateTimeLabel);
             holder.systolicLabel = (TextView) convertView.findViewById(R.id.systolicLabel);
             holder.diastolicLabel = (TextView) convertView.findViewById(R.id.diastolicLabel);
-            holder.bpStatusLabel = (TextView) convertView.findViewById(R.id.bpStatusLabel);
+            holder.systolicStatusImageView = (ImageView) convertView.findViewById(R.id.systolicStatusImageView);
+            holder.diastolicStatusImageView = (ImageView) convertView.findViewById(R.id.diastolicStatusImageView);
             convertView.setTag(holder);
         }
 
@@ -67,9 +69,20 @@ public class ReadingAdapter extends BaseAdapter {
         Reading reading = mReadings[position];
 
         holder.dateTimeLabel.setText(reading.getDateAndTime());
+
+        // Systolic section:
         holder.systolicLabel.setText(reading.getSystolic()+"");
+
+
+
+        holder.systolicStatusImageView.setImageResource(reading.getSystolicIconId());
+
+        // Diastolic section:
         holder.diastolicLabel.setText(reading.getDiastolic()+"");
-        holder.bpStatusLabel.setText((CharSequence)reading.getBPStatus());
+
+        holder.diastolicStatusImageView.setImageResource(reading.getDiastolicIconId());
+
+
 
         return convertView;
     }
@@ -78,9 +91,15 @@ public class ReadingAdapter extends BaseAdapter {
         TextView dateTimeLabel;
         TextView systolicLabel;
         TextView diastolicLabel;
-        TextView bpStatusLabel;
+        ImageView systolicStatusImageView;
+        ImageView diastolicStatusImageView;
+
 
 
 
     }
+
+
+
+
 }

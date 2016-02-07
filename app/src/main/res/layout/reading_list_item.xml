@@ -36,32 +36,53 @@
         android:src="@drawable/bg_reading"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/dateTimeLabel"
-        android:layout_toEndOf="@+id/dateTimeLabel"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"/>
+        android:layout_toEndOf="@+id/dateTimeLabel"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=" "
         android:id="@+id/diastolicLabel"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/systolicLabel"
-        android:layout_toEndOf="@+id/systolicLabel"
-        android:textColor="#ffffffff"
-        android:textSize="20sp"
-        tools:text="80"/>
+        android:textSize="15sp"
+        tools:text="80"
+        android:layout_centerVertical="true"
+        android:layout_alignTop="@+id/diastolicImageView"
+        android:layout_alignBottom="@+id/diastolicImageView"
+        android:layout_alignLeft="@+id/diastolicImageView"
+        android:layout_alignRight="@+id/diastolicImageView"
+        android:gravity="center"
+        android:textColor="#ff4e31ff"
+        android:layout_toRightOf="@+id/systolicStatusImageView"
+        android:layout_toEndOf="@+id/systolicStatusImageView" />
 
-    <TextView
+
+
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/bpStatusLabel"
+        android:id="@+id/systolicStatusImageView"
         android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/systolicImageView"
+        android:src="@drawable/normal_reading"
+        android:layout_alignBottom="@+id/diastolicLabel"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/diastolicImageView"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/systolicStatusImageView"
+        android:layout_toEndOf="@+id/systolicStatusImageView"
+        android:src="@drawable/bg_reading"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/diastolicStatusImageView"
+        android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/diastolicLabel"
         android:layout_toEndOf="@+id/diastolicLabel"
-        android:textColor="#ffffffff"
-        android:textSize="20sp"
-        tools:text="normal"/>
+        android:src="@drawable/high_reading"/>
 
 
 </RelativeLayout>
