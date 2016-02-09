@@ -3,7 +3,9 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:background="#ff7e8f">
+                tools:background="#ff7e8f"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -32,6 +34,8 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
         android:id="@+id/systolicImageView"
         android:src="@drawable/bg_reading"
         android:layout_alignParentTop="true"
@@ -60,6 +64,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingRight="8dp"
         android:id="@+id/systolicStatusImageView"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/systolicImageView"
@@ -69,6 +74,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingRight="8dp"
         android:id="@+id/diastolicImageView"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/systolicStatusImageView"
