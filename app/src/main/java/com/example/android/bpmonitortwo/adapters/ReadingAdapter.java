@@ -51,7 +51,7 @@ public class ReadingAdapter extends BaseAdapter {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.reading_list_item, null);
 
             holder = new ViewHolder();
-            holder.dateTimeLabel = (TextView) convertView.findViewById(R.id.dateTimeLabel);
+            holder.dateTimeLabel = (TextView) convertView.findViewById(R.id.averageLabel);
             holder.systolicLabel = (TextView) convertView.findViewById(R.id.systolicLabel);
             holder.diastolicLabel = (TextView) convertView.findViewById(R.id.diastolicLabel);
             holder.systolicStatusImageView = (ImageView) convertView.findViewById(R.id.systolicStatusImageView);

@@ -25,12 +25,20 @@ public class DisplayActivity extends ListActivity {
     private int mIndex;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
         returnMainScreenButton = (Button) findViewById(R.id.returnMainButton);
         listView = (ListView) findViewById(android.R.id.list);
+
+        // Added a footer to the ListView to display the average at the bottom of the list
+
+        View averageFooterView = View.inflate(this, R.layout.footer_layout, null);
+        listView.addFooterView(averageFooterView);
+
+
 
 
         Intent intent = getIntent();
@@ -70,8 +78,19 @@ public class DisplayActivity extends ListActivity {
 
 
         listView.setAdapter(adapter);
+        //listView.addFooterView(footerView);
 
 
+
+        // Testing...
+
+
+
+
+
+
+
+        // Test ends here.
 
 
 
