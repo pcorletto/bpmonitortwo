@@ -44,6 +44,8 @@
     <string  name="on_back_pressed_alert">Press again to close app</string>
     <string name="no_readings_data">There are no readings to display</string>
     <string name="is_empty">is_empty</string>
+    <string name="AVG_SYS">avg_systolic</string>
+    <string name="AVG_DIA">avg_diastolic</string>
 
 
 </resources>

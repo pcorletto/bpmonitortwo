@@ -1,8 +1,5 @@
 package com.example.android.bpmonitortwo.model;
 
-import com.example.android.bpmonitortwo.model.BPStatus;
-import com.example.android.bpmonitortwo.model.Reading;
-
 import java.text.DecimalFormat;
 
 /**
@@ -13,6 +10,10 @@ public class Keeper {
     public Reading[] mReading = new Reading[7];
 
     private int mIndex;
+
+    private String avgSystolic;
+
+    private String avgDiastolic;
 
     private String mSystolicDiastolicString;
 
@@ -227,6 +228,69 @@ public class Keeper {
             return value + "";
 
         }
+
+    }
+
+    public String getAvgSystolic(int dayCount){
+
+
+
+        int sumSystolic = 0;
+
+        double avgSystolic = 0;
+
+        for(int i=0; i<dayCount; i++){
+
+            sumSystolic = sumSystolic + mReading[i].getSystolic();
+
+        }
+
+        avgSystolic = (double) sumSystolic / dayCount;
+
+
+        // Round avgSystolic (double value) to the nearest int
+        // For example, if the value is 118.7, round it to 119.
+
+        DecimalFormat df = new DecimalFormat("#");
+
+        double roundedAvgSystolic = Math.round(avgSystolic);
+
+        int avgSystolicAsInt = Integer.parseInt(df.format(roundedAvgSystolic));
+
+        this.avgSystolic = avgSystolicAsInt + "";
+
+        return this.avgSystolic;
+    }
+
+    public String getAvgDiastolic(int dayCount){
+
+
+
+        int sumDiastolic = 0;
+
+        double avgDiastolic = 0;
+
+        for(int i=0; i<dayCount; i++){
+
+            sumDiastolic = sumDiastolic + mReading[i].getDiastolic();
+
+        }
+
+        avgDiastolic = (double) sumDiastolic / dayCount;
+
+
+        // Round avgDiastolic (double value) to the nearest int
+        // For example, if the value is 78.7, round it to 79.
+
+        DecimalFormat df = new DecimalFormat("#");
+
+        double roundedAvgDiastolic = Math.round(avgDiastolic);
+
+        int avgDiastolicAsInt = Integer.parseInt(df.format(roundedAvgDiastolic));
+
+        this.avgDiastolic = avgDiastolicAsInt + "";
+
+        return this.avgDiastolic;
 
     }
 

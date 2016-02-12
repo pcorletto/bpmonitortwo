@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.android.bpmonitortwo.R;
 import com.example.android.bpmonitortwo.adapters.ReadingAdapter;
@@ -23,6 +25,8 @@ public class DisplayActivity extends ListActivity {
     private ListView listView;
     private Reading[] mReadings;
     private int mIndex;
+    private String mAvgSystolic;
+    private String mAvgDiastolic;
 
 
 
@@ -36,18 +40,45 @@ public class DisplayActivity extends ListActivity {
         // Added a footer to the ListView to display the average at the bottom of the list
 
         View averageFooterView = View.inflate(this, R.layout.footer_layout, null);
+        ViewHolder holder = new ViewHolder();
+
+           holder.averageLabel = (TextView) averageFooterView.findViewById(R.id.averageLabel);
+           holder.systolicLabel = (TextView) averageFooterView.findViewById(R.id.systolicLabel);
+           holder.systolicStatusImageView = (ImageView) averageFooterView.findViewById(R.id.systolicStatusImageView);
+           holder.diastolicLabel = (TextView) averageFooterView.findViewById(R.id.diastolicLabel);
+           holder.diastolicStatusImageView = (ImageView) averageFooterView.findViewById(R.id.diastolicStatusImageView);
+
+
+        Intent intent = getIntent();
+
+        mIndex = intent.getIntExtra(INDEX, 0);
+        mAvgSystolic = intent.getStringExtra(getString(R.string.AVG_SYS));
+        mAvgDiastolic = intent.getStringExtra(getString(R.string.AVG_DIA));
+
+
+           // Set the AVERAGE data:
+
+           holder.averageLabel.setText("AVERAGE:           ");
+           holder.systolicLabel.setText(mAvgSystolic);
+           holder.diastolicLabel.setText(mAvgDiastolic);
+
+
+
+
+
+
         listView.addFooterView(averageFooterView);
 
 
 
 
-        Intent intent = getIntent();
 
-        //String[] displayArray = intent.getStringArrayExtra(getString(R.string.display_array));
+
+
 
         Parcelable[] parcelables = intent.getParcelableArrayExtra(DAILY_READING);
 
-        mIndex = intent.getIntExtra(INDEX, 0);
+
 
         mReadings = Arrays.copyOf(parcelables, mIndex, Reading[].class);
         //mReadings = Arrays.copyOf(parcelables, parcelables.length, Reading[].class);
@@ -78,7 +109,9 @@ public class DisplayActivity extends ListActivity {
 
 
         listView.setAdapter(adapter);
-        //listView.addFooterView(footerView);
+
+
+
 
 
 
@@ -100,6 +133,16 @@ public class DisplayActivity extends ListActivity {
                 finish();
             }
         });
+
+    }
+
+    public final class ViewHolder{
+
+        public TextView averageLabel;
+        public TextView systolicLabel;
+        public ImageView systolicStatusImageView;
+        public TextView diastolicLabel;
+        public ImageView diastolicStatusImageView;
 
     }
 

@@ -51,6 +51,7 @@ public class MainActivity extends ActionBarActivity {
     private String mSystolicDiastolicString;
     private String mLanguagePreference;
     private boolean backPressToExit = false;
+    private String avgSystolic, avgDiastolic;
 
     public static final String DAILY_READING = "DAILY_READING";
     public static final String INDEX = "INDEX";
@@ -500,11 +501,25 @@ public class MainActivity extends ActionBarActivity {
 
                 }
 
+                // Get the average systolic and diastolic values for the keeper.
+
+                avgSystolic = mWeeklyReadingKeeper.getAvgSystolic(mIndex);
+
+                avgDiastolic = mWeeklyReadingKeeper.getAvgDiastolic(mIndex);
+
                     Intent intent = new Intent(MainActivity.this, DisplayActivity.class);
 
                     intent.putExtra(DAILY_READING, mWeeklyReadingKeeper.mReading);
 
                     intent.putExtra(INDEX, mIndex);
+
+                    intent.putExtra(getString(R.string.AVG_SYS), avgSystolic);
+
+                    intent.putExtra(getString(R.string.AVG_DIA), avgDiastolic);
+
+
+
+
 
                    // intent.putExtra(getString(R.string.display_array), displayArray);
                     //intent.putExtra(getString(R.string.is_empty), isEmpty);
