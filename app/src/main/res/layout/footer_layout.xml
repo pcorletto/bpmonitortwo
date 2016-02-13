@@ -90,5 +90,15 @@
         android:layout_toEndOf="@+id/diastolicLabel"
         android:src="@drawable/high_reading"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Button"
+        android:id="@+id/button"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="22dp"/>
+
 
 </RelativeLayout>

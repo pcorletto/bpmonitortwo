@@ -27,6 +27,7 @@ public class DisplayActivity extends ListActivity {
     private int mIndex;
     private String mAvgSystolic;
     private String mAvgDiastolic;
+    private String mSystolicBPStatus, mDiastolicBPStatus;
 
 
 
@@ -59,8 +60,12 @@ public class DisplayActivity extends ListActivity {
            // Set the AVERAGE data:
 
            holder.averageLabel.setText("AVERAGE:           ");
+
            holder.systolicLabel.setText(mAvgSystolic);
+           holder.systolicStatusImageView.setImageResource(getSystolicIconId(mAvgSystolic));
+
            holder.diastolicLabel.setText(mAvgDiastolic);
+           holder.diastolicStatusImageView.setImageResource(getDiastolicIconId(mAvgDiastolic));
 
 
 
@@ -144,6 +149,84 @@ public class DisplayActivity extends ListActivity {
         public TextView diastolicLabel;
         public ImageView diastolicStatusImageView;
 
+    }
+
+    public int getSystolicIconId(String avgSystolic) {
+
+        int avgSystolicInt = Integer.parseInt(avgSystolic);
+
+        //Initialize SystolicIconId to normal
+        int mSystolicIconId = R.drawable.normal_reading;
+
+        mSystolicBPStatus = getSystolicBPStatus(avgSystolicInt);
+
+        if(mSystolicBPStatus.equals("low")){
+            mSystolicIconId = R.drawable.low_reading;
+        }
+
+        else if(mSystolicBPStatus.equals("normal")){
+            mSystolicIconId = R.drawable.normal_reading;
+        }
+
+        else if(mSystolicBPStatus.equals("high")){
+            mSystolicIconId = R.drawable.high_reading;
+        }
+
+        return mSystolicIconId;
+
+    }
+
+    public String getSystolicBPStatus(double s){
+        if(s<90){
+            mSystolicBPStatus="low";
+        }
+        else if(s>120){
+            mSystolicBPStatus="high";
+
+        }
+        else{
+            mSystolicBPStatus="normal";
+        }
+        return mSystolicBPStatus;
+    }
+
+    public int getDiastolicIconId(String avgDiastolic) {
+
+        int avgDiastolicInt = Integer.parseInt(avgDiastolic);
+
+        //Initialize DiastolicIconId to normal
+        int mDiastolicIconId = R.drawable.normal_reading;
+
+        mDiastolicBPStatus = getDiastolicBPStatus(avgDiastolicInt);
+
+        if(mDiastolicBPStatus.equals("low")){
+            mDiastolicIconId = R.drawable.low_reading;
+        }
+
+        else if(mDiastolicBPStatus.equals("normal")){
+            mDiastolicIconId = R.drawable.normal_reading;
+        }
+
+        else if(mDiastolicBPStatus.equals("high")){
+            mDiastolicIconId = R.drawable.high_reading;
+        }
+
+        return mDiastolicIconId;
+
+    }
+
+    public String getDiastolicBPStatus(double d){
+        if(d<60){
+            mDiastolicBPStatus="low";
+        }
+        else if(d>80){
+            mDiastolicBPStatus="high";
+
+        }
+        else{
+            mDiastolicBPStatus="normal";
+        }
+        return mDiastolicBPStatus;
     }
 
 }
