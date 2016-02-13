@@ -40,5 +40,7 @@
     <string name="display_array">display_array</string>
     <string  name="on_back_pressed_alert">Presiónelo otra vez para cerrar la aplicación</string>
     <string name="no_readings_data">No hay lecturas almacenadas que mostrar</string>
+    <string name="weekly_reading_store_button">STORE THIS WEEK\'S READINGS</string>
+    <string name="display_past_weeks_button">DISPLAY PAST WEEKS\' READINGS</string>
 
 </resources>

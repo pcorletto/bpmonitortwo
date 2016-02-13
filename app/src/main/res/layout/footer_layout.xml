@@ -7,98 +7,119 @@
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/averageLabel"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="20sp"
-        android:textColor="#ffffffff"
-        tools:text="AVERAGE"/>
+        android:id="@+id/avgRelativeLayout">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/systolicLabel"
-        android:layout_alignTop="@+id/systolicImageView"
-        android:layout_alignBottom="@+id/systolicImageView"
-        android:layout_alignLeft="@+id/systolicImageView"
-        android:layout_alignRight="@+id/systolicImageView"
-        android:gravity="center"
-        android:textColor="#ff4e31ff"
-        android:textSize="15sp"
-        tools:text="120"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/averageLabel"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textSize="20sp"
+            android:textColor="#ffffffff"
+            tools:text="AVERAGE"/>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
-        android:id="@+id/systolicImageView"
-        android:src="@drawable/bg_reading"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/averageLabel"
-        android:layout_toEndOf="@+id/averageLabel"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/systolicLabel"
+            android:layout_alignTop="@+id/systolicImageView"
+            android:layout_alignBottom="@+id/systolicImageView"
+            android:layout_alignLeft="@+id/systolicImageView"
+            android:layout_alignRight="@+id/systolicImageView"
+            android:gravity="center"
+            android:textColor="#ff4e31ff"
+            android:textSize="15sp"
+            tools:text="120"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" "
-        android:id="@+id/diastolicLabel"
-        android:textSize="15sp"
-        tools:text="80"
-        android:layout_centerVertical="true"
-        android:layout_alignTop="@+id/diastolicImageView"
-        android:layout_alignBottom="@+id/diastolicImageView"
-        android:layout_alignLeft="@+id/diastolicImageView"
-        android:layout_alignRight="@+id/diastolicImageView"
-        android:gravity="center"
-        android:textColor="#ff4e31ff"
-        android:layout_toRightOf="@+id/systolicStatusImageView"
-        android:layout_toEndOf="@+id/systolicStatusImageView" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:id="@+id/systolicImageView"
+            android:src="@drawable/bg_reading"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/averageLabel"
+            android:layout_toEndOf="@+id/averageLabel"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" "
+            android:id="@+id/diastolicLabel"
+            android:textSize="15sp"
+            tools:text="80"
+            android:layout_centerVertical="true"
+            android:layout_alignTop="@+id/diastolicImageView"
+            android:layout_alignBottom="@+id/diastolicImageView"
+            android:layout_alignLeft="@+id/diastolicImageView"
+            android:layout_alignRight="@+id/diastolicImageView"
+            android:gravity="center"
+            android:textColor="#ff4e31ff"
+            android:layout_toRightOf="@+id/systolicStatusImageView"
+            android:layout_toEndOf="@+id/systolicStatusImageView" />
 
 
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingRight="8dp"
-        android:id="@+id/systolicStatusImageView"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/systolicImageView"
-        android:src="@drawable/normal_reading"
-        android:layout_alignBottom="@+id/diastolicLabel"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="8dp"
+            android:id="@+id/systolicStatusImageView"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/systolicImageView"
+            android:src="@drawable/normal_reading"
+            android:layout_alignBottom="@+id/diastolicLabel"/>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingRight="8dp"
-        android:id="@+id/diastolicImageView"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/systolicStatusImageView"
-        android:layout_toEndOf="@+id/systolicStatusImageView"
-        android:src="@drawable/bg_reading"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="8dp"
+            android:id="@+id/diastolicImageView"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/systolicStatusImageView"
+            android:layout_toEndOf="@+id/systolicStatusImageView"
+            android:src="@drawable/bg_reading"/>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/diastolicStatusImageView"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/diastolicLabel"
-        android:layout_toEndOf="@+id/diastolicLabel"
-        android:src="@drawable/high_reading"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/diastolicStatusImageView"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/diastolicLabel"
+            android:layout_toEndOf="@+id/diastolicLabel"
+            android:src="@drawable/high_reading"/>
+
+
+
+
+
+        </RelativeLayout>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button"
-        android:layout_alignParentTop="true"
+        android:text="@string/weekly_reading_store_button"
+        android:id="@+id/storeWeekReadingsBtn"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="22dp"/>
+        android:layout_below="@+id/avgRelativeLayout"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/holo_blue_light"
+        android:textColor="@android:color/white"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/display_past_weeks_button"
+        android:id="@+id/displayPastWeeksBtn"
+        android:layout_below="@+id/storeWeekReadingsBtn"
+        android:textColor="@android:color/white"
+        android:background="@android:color/holo_green_light"/>
 
 </RelativeLayout>

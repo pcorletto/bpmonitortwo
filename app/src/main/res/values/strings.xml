@@ -46,6 +46,8 @@
     <string name="is_empty">is_empty</string>
     <string name="AVG_SYS">avg_systolic</string>
     <string name="AVG_DIA">avg_diastolic</string>
+    <string name="weekly_reading_store_button">STORE THIS WEEK\'S READINGS</string>
+    <string name="display_past_weeks_button">DISPLAY PAST WEEKS\' READINGS</string>
 
 
 </resources>
