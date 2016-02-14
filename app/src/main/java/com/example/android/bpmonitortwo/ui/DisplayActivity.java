@@ -2,6 +2,8 @@ package com.example.android.bpmonitortwo.ui;
 
 import android.app.ListActivity;
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.ToneGenerator;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
@@ -94,6 +96,34 @@ public class DisplayActivity extends ListActivity {
         });
 
 
+        // OnClickListener for "Store This Week's Readings" button
+
+        holder.storeThisWeekReadings = (Button) findViewById(R.id.storeWeekReadingsBtn);
+
+        holder.storeThisWeekReadings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(mIndex<7){
+
+                    // Display a Toast, because there are still not seven readings to store a week
+
+                    ToneGenerator toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 100);
+                    toneG.startTone(ToneGenerator.TONE_SUP_CONGESTION, 200);
+
+                   Toast.makeText(DisplayActivity.this, "You still cannot store the week. It has been less than 7 readings! Store "
+                           + (7 - mIndex) + " more.", Toast.LENGTH_LONG).show();
+
+                }
+
+
+
+            }
+        });
+
+
+
+
 
 
 
@@ -139,6 +169,7 @@ public class DisplayActivity extends ListActivity {
         public ImageView systolicStatusImageView;
         public TextView diastolicLabel;
         public ImageView diastolicStatusImageView;
+        public Button storeThisWeekReadings;
 
     }
 
