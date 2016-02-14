@@ -5,10 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android.bpmonitortwo.R;
 import com.example.android.bpmonitortwo.adapters.ReadingAdapter;
@@ -68,17 +70,7 @@ public class DisplayActivity extends ListActivity {
            holder.diastolicStatusImageView.setImageResource(getDiastolicIconId(mAvgDiastolic));
 
 
-
-
-
-
         listView.addFooterView(averageFooterView);
-
-
-
-
-
-
 
 
         Parcelable[] parcelables = intent.getParcelableArrayExtra(DAILY_READING);
@@ -86,25 +78,24 @@ public class DisplayActivity extends ListActivity {
 
 
         mReadings = Arrays.copyOf(parcelables, mIndex, Reading[].class);
-        //mReadings = Arrays.copyOf(parcelables, parcelables.length, Reading[].class);
+
+
+        // Add an OnItemClickListener to display more details about an individual reading displayed
+        // on the ListView. For now, I'll just have it display the date and time when the reading
+        // was taken, in a brief Toast message. I will create and open up a new Activity that displays
+        // comments and/or any more information about the reading.
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(DisplayActivity.this, "Reading taken on " + mReadings[position].getDateAndTime(),
+                        Toast.LENGTH_LONG).show();
+            }
+        });
 
 
 
 
-        // Display the weekly readings.
-
-        //Toast.makeText(DisplayActivity.this, weeklyReadings, Toast.LENGTH_LONG).show();
-
-        //String[] myStringArray = {weeklyReadings};
-
-        // This code worked. Comment it out temporarily to test the passed displayArray.
-        //ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, myStringArray);
-
-        // Display dummy data from displayArray (Array of 7 strings): "Day 1, Day 2, ..." temporarily,
-        // until it get it to work
-
-
-        //listView.setEmptyView(findViewById(android.R.id.empty));
 
         ReadingAdapter adapter = new ReadingAdapter(this, mReadings, mIndex);
 
