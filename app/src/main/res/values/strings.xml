@@ -4,8 +4,11 @@
     <string name="app_name">BPMonitor2</string>
     <string name="last_reading_prompt">Last Reading:</string>
     <string name="enter_bp_reading_prompt">Enter Blood Pressure Reading</string>
-    <string name="systolic_prompt">SYSTOLIC</string>
-    <string name="diastolic_prompt">DIASTOLIC</string>
+    <string name="systolic_prompt">SYS</string>
+    <string name="diastolic_prompt">DIA</string>
+    <string name="hide_keyboard">Hide</string>
+    <string name="report_on_day">Report</string>
+    <string name="last_reading_label">Last Reading:</string>
     <string name="bp_check_status_button_prompt">Check individual day reading</string>
     <string name="store_button_prompt">Store Individual day Reading</string>
     <string name="display_stored_readings_button_prompt">Display Stored weekly Readings</string>

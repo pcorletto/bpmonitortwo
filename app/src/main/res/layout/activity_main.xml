@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:paddingTop="@dimen/activity_vertical_margin"
@@ -16,8 +16,13 @@
         android:id="@+id/enterBPTextView"
         android:textSize="21sp"
         android:textColor="#ffff2f52"
+        android:layout_marginTop="30dp"
         android:layout_below="@+id/lastSystolicEditText"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/hideButton"
+        android:layout_alignEnd="@+id/hideButton"
+        android:gravity="center_horizontal"/>
 
     <Button
         android:layout_width="match_parent"
@@ -70,7 +75,8 @@
         android:layout_below="@+id/systolicEditText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        />
+        android:layout_marginLeft="35dp"
+        android:layout_marginStart="35dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -79,7 +85,8 @@
         android:id="@+id/diastolicTextView"
         android:textSize="20sp"
         android:textColor="#ff5641ff"
-        android:layout_below="@+id/diastolicEditText"
+        android:layout_alignBaseline="@+id/systolicTextView"
+        android:layout_alignBottom="@+id/systolicTextView"
         android:layout_centerHorizontal="true"/>
 
     <EditText
@@ -90,7 +97,8 @@
         android:id="@+id/systolicEditText"
         android:gravity="center_horizontal"
         android:layout_alignBottom="@+id/textView2"
-        android:layout_toStartOf="@+id/textView2"/>
+        android:layout_toStartOf="@+id/textView2"
+        android:layout_toLeftOf="@+id/textView2"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -99,58 +107,11 @@
         android:ems="10"
         android:id="@+id/diastolicEditText"
         android:gravity="center_horizontal"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_toRightOf="@+id/textView2"
-        android:layout_toStartOf="@+id/textView"
-        android:layout_toLeftOf="@+id/textView"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/last_reading_prompt"
-        android:id="@+id/lastReadingLabel"
-        android:textSize="14sp"
-        android:textColor="#ff3620ff"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/diastolicEditText"
-        android:textIsSelectable="false"
-        android:layout_alignRight="@+id/systolicTextView"
-        android:layout_alignEnd="@+id/systolicTextView"/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lastSystolicEditText"
-        android:inputType="number"
-        android:ems="10"
-        android:layout_alignTop="@+id/lastReadingLabel"
-        android:layout_alignBottom="@+id/lastDiastolicEditText"
-        android:layout_toRightOf="@+id/lastReadingLabel"
-        android:gravity="center_horizontal"
-        android:layout_toStartOf="@+id/textView"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="/"
-        android:id="@+id/textView"
-        android:textSize="30sp"
-        android:layout_alignTop="@+id/lastDiastolicEditText"
-        android:layout_toLeftOf="@+id/lastDiastolicEditText"
-        android:layout_toStartOf="@+id/lastDiastolicEditText"/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/lastDiastolicEditText"
-        android:layout_alignTop="@+id/lastReadingLabel"
-        android:gravity="center_horizontal"
-        android:layout_alignLeft="@+id/hideButton"
-        android:layout_alignStart="@+id/hideButton"/>
+        android:layout_alignBottom="@+id/reportOnDayButton"
+        android:layout_toLeftOf="@+id/reportOnDayButton"
+        android:layout_alignLeft="@+id/lastSystolicEditText"
+        android:layout_alignStart="@+id/lastSystolicEditText"
+         />
 
     <TextView
         android:layout_width="wrap_content"
@@ -160,8 +121,8 @@
         android:textSize="40sp"
         android:gravity="center_horizontal"
         android:layout_below="@+id/enterBPTextView"
-        android:layout_toRightOf="@+id/systolicTextView"
-        android:layout_toEndOf="@+id/systolicTextView"/>
+        android:layout_toLeftOf="@+id/diastolicEditText"
+        android:layout_toStartOf="@+id/diastolicEditText"/>
 
     <Button
         android:layout_width="match_parent"
@@ -173,38 +134,98 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bpCheckButton"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/bpCheckButton"
         android:text="@string/reading_count_prompt"
+        android:id="@+id/readingCountMessage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#ff393eff"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bpCheckButton"
         android:id="@+id/readingCountTextView"
-        android:layout_marginTop="29dp"
-        android:layout_below="@+id/systolicTextView"
-        android:layout_alignRight="@+id/diastolicEditText"
-        android:layout_alignEnd="@+id/diastolicEditText"/>
+        android:layout_toRightOf="@id/readingCountMessage"/>
+
+    </LinearLayout>
+
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hide_keyboard"
+        android:id="@+id/hideButton"
+        android:layout_below="@+id/enterBPTextView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/report_on_day"
+        android:id="@+id/reportOnDayButton"
+        android:layout_alignBottom="@+id/hideButton"
+        android:layout_toLeftOf="@+id/hideButton"
+        android:layout_toStartOf="@+id/hideButton"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/last_reading_label"
+        android:id="@+id/lastReadingLabel"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingTop="12dp"
+        android:textSize="21sp"
+        android:textColor="#ff3c4fff"/>
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/readingCountEditText"
-        android:gravity="center_horizontal"
-        android:layout_alignBottom="@+id/readingCountTextView"
-        android:layout_alignLeft="@+id/hideButton"
-        android:layout_alignStart="@+id/hideButton"
-        android:layout_alignRight="@+id/enterBPTextView"
-        android:layout_alignEnd="@+id/enterBPTextView"/>
+        android:id="@+id/lastSystolicEditText"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/lastReadingLabel"
+        android:layout_toStartOf="@+id/reportOnDayButton"
+        android:layout_toLeftOf="@+id/reportOnDayButton"
+        android:gravity="center_horizontal"/>
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=">>>"
-        android:id="@+id/hideButton"
-        android:layout_above="@+id/diastolicTextView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/diastolicTextView"
-        android:background="@android:color/holo_green_light"
-        android:layout_toRightOf="@+id/diastolicTextView"
-        android:textSize="36sp"/>
+        android:text="/"
+        android:id="@+id/textView"
+        android:textSize="21sp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/enterBPTextView"
+        android:gravity="center_horizontal"
+        android:paddingTop="12dp"
+        android:layout_alignLeft="@+id/reportOnDayButton"
+        android:layout_alignStart="@+id/reportOnDayButton"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lastDiastolicEditText"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/hideButton"
+        android:layout_alignEnd="@+id/hideButton"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView"
+        android:gravity="center_horizontal"/>
 
 </RelativeLayout>

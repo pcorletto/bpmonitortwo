@@ -23,6 +23,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.bpmonitortwo.R;
@@ -38,7 +39,8 @@ public class MainActivity extends ActionBarActivity {
 
     private RelativeLayout mRelativeLayout;
     private EditText lastSystolicEditText, lastDiastolicEditText,
-            systolicEditText, diastolicEditText, readingCountEditText;
+            systolicEditText, diastolicEditText;
+    private TextView readingCountTextView;
     private Button bpCheckButton, storeReadingButton, displayReadingsButton, resetUIButton,
             clearWeeklyReadingsButton, hideButton;
     private int mSystolic, mDiastolic;
@@ -81,7 +83,7 @@ public class MainActivity extends ActionBarActivity {
         storeReadingButton = (Button) findViewById(R.id.storeReadingButton);
         displayReadingsButton = (Button) findViewById(R.id.displayReadingsButton);
         resetUIButton = (Button) findViewById(R.id.resetUIButton);
-        readingCountEditText = (EditText) findViewById(R.id.readingCountEditText);
+        readingCountTextView = (TextView) findViewById(R.id.readingCountTextView);
         clearWeeklyReadingsButton = (Button) findViewById(R.id.clearWeeklyReadingsButton);
         hideButton = (Button) findViewById(R.id.hideButton);
 
@@ -106,7 +108,7 @@ public class MainActivity extends ActionBarActivity {
         lastDiastolicEditText.setTextColor(Color.BLACK);
         lastDiastolicEditText.setText(mDiastolic + "");
 
-        readingCountEditText.setText(mIndex + "");
+        readingCountTextView.setText(mIndex + "");
 
         // Mark any high or low readings in red.
 
@@ -378,7 +380,7 @@ public class MainActivity extends ActionBarActivity {
                     lastDiastolicEditText.setTextColor(Color.BLACK);
                     lastDiastolicEditText.setText(mDiastolic + "");
 
-                    readingCountEditText.setText(mIndex + "");
+                    readingCountTextView.setText(mIndex + "");
 
                     // Play a beeping sound once the reading is successfully stored.
 
@@ -566,7 +568,7 @@ public class MainActivity extends ActionBarActivity {
                         // Clear all EditTexts
                         lastSystolicEditText.setText("");
                         lastDiastolicEditText.setText("");
-                        readingCountEditText.setText("");
+                        readingCountTextView.setText("");
                         systolicEditText.setText("");
                         diastolicEditText.setText("");
                         systolicEditText.requestFocus();

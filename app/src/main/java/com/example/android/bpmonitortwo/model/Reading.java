@@ -11,9 +11,30 @@ import com.example.android.bpmonitortwo.R;
 public class Reading implements Parcelable {
     private int mSystolic, mDiastolic;
     private String mDateTime;
+    private String mReportOnDay;
+
+    public String getRecommendations() {
+        return mRecommendations;
+    }
+
+    public void setRecommendations(String recommendations) {
+        mRecommendations = recommendations;
+    }
+
+    public String getReportOnDay() {
+
+        return mReportOnDay;
+    }
+
+    public void setReportOnDay(String reportOnDay) {
+        mReportOnDay = reportOnDay;
+    }
+
     private String mBPStatus;
     private String mSystolicBPStatus;
     private String mDiastolicBPStatus;
+    private String mRecommendations;
+
 
     private BPStatus bpStatus = new BPStatus();
     private int mSystolicIconId;
