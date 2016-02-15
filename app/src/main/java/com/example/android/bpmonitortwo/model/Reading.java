@@ -9,17 +9,18 @@ import com.example.android.bpmonitortwo.R;
  * Created by hernandez on 12/9/2015.
  */
 public class Reading implements Parcelable {
-    private int mSystolic, mDiastolic;
+    private int mSystolic, mDiastolic, mPulse;
     private String mDateTime;
-    private String mReportOnDay;
+    private String mDescription;
 
-    public Reading (int systolic, int diastolic, String dateTime, String reportOnDay){
+    public Reading (int systolic, int diastolic, int pulse, String dateTime, String description){
 
         this.setSystolic(systolic);
         this.setDiastolic(diastolic);
+        this.setPulse(pulse);
         mBPStatus = this.getBPStatus(systolic, diastolic);
         this.setDateAndTime(dateTime);
-        this.setReportOnDay(reportOnDay);
+        this.setDescription(description);
 
     }
 
@@ -32,13 +33,21 @@ public class Reading implements Parcelable {
 
     }
 
-    public String getReportOnDay() {
-
-        return mReportOnDay;
+    public String getDescription() {
+        return mDescription;
     }
 
-    public void setReportOnDay(String reportOnDay) {
-        mReportOnDay = reportOnDay;
+    public void setDescription(String description) {
+        mDescription = description;
+    }
+
+    public int getPulse() {
+
+        return mPulse;
+    }
+
+    public void setPulse(int pulse) {
+        mPulse = pulse;
     }
 
     private String mBPStatus;
@@ -190,6 +199,8 @@ public class Reading implements Parcelable {
 
         dest.writeInt(mSystolic);
         dest.writeInt(mDiastolic);
+        dest.writeInt(mPulse);
+        dest.writeString(mDescription);
         dest.writeString(mDateTime);
         dest.writeString(mBPStatus);
 
@@ -199,6 +210,8 @@ public class Reading implements Parcelable {
 
         mSystolic = in.readInt();
         mDiastolic = in.readInt();
+        mPulse = in.readInt();
+        mDescription = in.readString();
         mDateTime = in.readString();
         mBPStatus = in.readString();
 

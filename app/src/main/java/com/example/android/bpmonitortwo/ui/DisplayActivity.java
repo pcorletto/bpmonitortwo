@@ -92,8 +92,13 @@ public class DisplayActivity extends ListActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(DisplayActivity.this, "Reading taken on " + mReadings[position].getDateAndTime(),
                         Toast.LENGTH_LONG).show();
+
+                Toast.makeText(DisplayActivity.this, "On that day you reported that " + mReadings[position].getDescription()
+                                + "\n\n" + "Your pulse rate was " + mReadings[position].getPulse(),
+                        Toast.LENGTH_LONG).show();
             }
         });
+
 
 
         // OnClickListener for "Store This Week's Readings" button

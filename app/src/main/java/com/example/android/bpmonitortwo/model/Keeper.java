@@ -26,23 +26,28 @@ public class Keeper {
             // Extract the diastolic and systolic values from the readings
             // from the stored mSystolicDiastolicString string passed in from MainActivity.
 
-            String systolic = passedInString.substring((20*i),(20*i+3));
+            String systolic = passedInString.substring((38*i),(38*i+3));
 
             int s = Integer.parseInt(systolic);
 
-            String diastolic = passedInString.substring((20*i+3),(20*i+6));
+            String diastolic = passedInString.substring((38*i+3),(38*i+6));
 
             int d = Integer.parseInt(diastolic);
 
+            String pulse = passedInString.substring((38*i+6), (38*i+9));
 
-            String dateAndTime1 = passedInString.substring((20*i+6),(20*i+19));
+            int p = Integer.parseInt(pulse);
 
-            char eol = passedInString.charAt(20*i+19);
+            String dateAndTime = passedInString.substring((38*i+9),(38*i+23));
 
-            String dateAndTime = dateAndTime1 + eol;
+            String description1 = passedInString.substring((38*i+23), (38*i+37));
+
+            char eol = passedInString.charAt(38*i+37);
+
+            String description = description1 + eol;
 
 
-            mReading[i] = new Reading(s, d, dateAndTime);
+            mReading[i] = new Reading(s, d, p, dateAndTime, description);
 
         }
 
@@ -50,12 +55,12 @@ public class Keeper {
     }
 
 
-    public void setAReading(int s, int d, String dateTime, String reportOnDay){
+    public void setAReading(int s, int d, int pulse, String dateTime, String description){
         if(mIndex==7){
             //Keeper is full. Do not store any more readings...
         }
         else {
-            mReading[mIndex] = new Reading(s, d, dateTime, reportOnDay);
+            mReading[mIndex] = new Reading(s, d, pulse, dateTime, description);
 
             mIndex++;
         }
@@ -66,8 +71,10 @@ public class Keeper {
         String msg = "";
         int systolicValue;
         int diastolicValue;
+        //int pulseValue; To be used later ... Under Construction...
         String systolicString;
         String diastolicString;
+        //String pulseString; To be used later ... Under Construction ...
 
         for(int i=0; i<mIndex; i++){
 
@@ -79,6 +86,7 @@ public class Keeper {
 
             systolicString = putLeadingZeroes(systolicValue);
             diastolicString = putLeadingZeroes(diastolicValue);
+            //pulseString = putLeadingZeroes(pulseValue);
 
             //The next block works perfectly fine, but I will try to put in dates and times now.
             // Concatenate the days, the systolic and diastolic values and the pressure status.
@@ -100,13 +108,17 @@ public class Keeper {
         String msg = "";
         int systolicValue;
         int diastolicValue;
+        int pulseValue;
         String systolicString;
         String diastolicString;
+        String pulseString;
 
         for(int i=0; i<mIndex; i++){
 
             systolicValue = mReading[i].getSystolic();
             diastolicValue = mReading[i].getDiastolic();
+            pulseValue = mReading[i].getPulse();
+
 
             // Validate: if the systolic or diastolic values have only 1 or 2 digits, make them
             // three digits wide by putting in one or two leading zeroes.
@@ -115,7 +127,10 @@ public class Keeper {
 
             diastolicString = putLeadingZeroes(diastolicValue);
 
-            msg = msg + systolicString + diastolicString + mReading[i].getDateAndTime();
+            pulseString = putLeadingZeroes(pulseValue);
+
+            msg = msg + systolicString + diastolicString + pulseString +
+                    mReading[i].getDateAndTime() + mReading[i].getDescription();
 
         }
 

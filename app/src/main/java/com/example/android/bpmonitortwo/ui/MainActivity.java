@@ -22,7 +22,6 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,14 +36,13 @@ import java.util.Locale;
 
 public class MainActivity extends ActionBarActivity {
 
-    private RelativeLayout mRelativeLayout;
     private EditText lastSystolicEditText, lastDiastolicEditText,
-            systolicEditText, diastolicEditText;
+            systolicEditText, diastolicEditText, pulseEditText, descriptionEditText;
     private TextView readingCountTextView;
     private Button bpCheckButton, storeReadingButton, displayReadingsButton, resetUIButton,
-            clearWeeklyReadingsButton, hideButton, reportOnDayButton;
-    private int mSystolic, mDiastolic;
-    private String bpCheckStatus, mRecommendations, mDayReport;
+            clearWeeklyReadingsButton, hideButton;
+    private int mSystolic, mDiastolic, mPulse;
+    private String bpCheckStatus, mRecommendations, mDescription;
     private Reading mReading = new Reading();
     private Keeper mWeeklyReadingKeeper = new Keeper();
     private int mIndex;
@@ -73,12 +71,14 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mRelativeLayout = (RelativeLayout) findViewById(R.id.relativeLayout);
+
 
         lastSystolicEditText = (EditText) findViewById(R.id.lastSystolicEditText);
         lastDiastolicEditText = (EditText) findViewById(R.id.lastDiastolicEditText);
         systolicEditText = (EditText) findViewById(R.id.systolicEditText);
         diastolicEditText = (EditText) findViewById(R.id.diastolicEditText);
+        pulseEditText = (EditText) findViewById(R.id.pulseEditText);
+        descriptionEditText = (EditText) findViewById(R.id.descriptionEditText);
         bpCheckButton = (Button) findViewById(R.id.bpCheckButton);
         storeReadingButton = (Button) findViewById(R.id.storeReadingButton);
         displayReadingsButton = (Button) findViewById(R.id.displayReadingsButton);
@@ -327,6 +327,29 @@ public class MainActivity extends ActionBarActivity {
 
                     mDiastolic = Integer.parseInt(mDiastolicString);
 
+                    // Also, capture pulse and description from EditTexts, just like it did before
+                    // for systolic and diastolic. I need to store these in SharedPref file later.
+
+                    mPulse = Integer.parseInt(pulseEditText.getText().toString());
+
+                    mDescription = descriptionEditText.getText().toString();
+
+                    // Make Description exactly 15 characters long.
+
+                    int descLength = mDescription.length();
+
+                    String builderString = "";
+
+                    for(int i=0; i<(15-descLength) ; i++){
+
+                        builderString = builderString + " ";
+
+                    }
+
+                    mDescription = mDescription + builderString;
+
+
+
                     // Set a reading at last index position.
 
                     SharedPreferences sharedPreferences = MainActivity.this
@@ -344,11 +367,14 @@ public class MainActivity extends ActionBarActivity {
                     // systolic and diastolic (mSystolicDiastolicString) into index from
                     // 0 to currentIndex
 
+                    // Make a dummy systolicDiastolicString, 38 characters long.
+                    //mSystolicDiastolicString = "12008007702/15 12:46 PM---------------";
+
                     mWeeklyReadingKeeper.setSystolicDiastolicString(mSystolicDiastolicString);
 
                     mWeeklyReadingKeeper.reloadArray(mSystolicDiastolicString, mIndex);
 
-                    mWeeklyReadingKeeper.setAReading(mSystolic, mDiastolic, getCurrentDateAndTime(), mDayReport);
+                    mWeeklyReadingKeeper.setAReading(mSystolic, mDiastolic, mPulse, getCurrentDateAndTime(), mDescription);
 
                     // Store the last reading on a SharedPreferences file so that it can be
                     // displayed even after the app is stopped.
@@ -560,6 +586,8 @@ public class MainActivity extends ActionBarActivity {
                 diastolicEditText.setTextColor(Color.BLACK);
                 systolicEditText.setText("");
                 diastolicEditText.setText("");
+                pulseEditText.setText("");
+                descriptionEditText.setText("");
 
             }
         });
@@ -591,6 +619,8 @@ public class MainActivity extends ActionBarActivity {
                         readingCountTextView.setText("");
                         systolicEditText.setText("");
                         diastolicEditText.setText("");
+                        pulseEditText.setText("");
+                        descriptionEditText.setText("");
                         systolicEditText.requestFocus();
 
                         displayArray[0] = "";
@@ -837,7 +867,8 @@ public class MainActivity extends ActionBarActivity {
 
         else if(systolicBPStatus.equals("normal")&&(diastolicBPStatus.equals("normal"))){
 
-            mRecommendations = "Eat a low-salt diet. Always check your food labels for sodium intake.\n" +
+            mRecommendations = "In order to maintain a normal blood pressure, follow these recommendations:\n " + "\n" +
+                    "Eat a low-salt diet. Always check your food labels for sodium intake.\n" +
                     "Do not smoke.\n" +
                     "Get plenty of sleep.\n" +
                     "Eat a balanced diet, low in saturated fat and high in fiber, fruits and vegetables.\n" +
