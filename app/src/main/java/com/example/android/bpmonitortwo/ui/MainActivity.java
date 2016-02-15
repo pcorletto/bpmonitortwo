@@ -330,11 +330,32 @@ public class MainActivity extends ActionBarActivity {
                     // Also, capture pulse and description from EditTexts, just like it did before
                     // for systolic and diastolic. I need to store these in SharedPref file later.
 
-                    mPulse = Integer.parseInt(pulseEditText.getText().toString());
+                    String mPulseString = pulseEditText.getText().toString();
+
+                    // Check if the user did not enter anything. If no entry, then alert
+                    if (TextUtils.isEmpty(mPulseString)) {
+                        pulseEditText.setError(getString(R.string.empty_reading_alert));
+                        ToneGenerator toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 100);
+                        toneG.startTone(ToneGenerator.TONE_SUP_CONGESTION, 200);
+                        return;
+                    }
+
+                    // If the value entered is 1000 or greater, alert that it can only be three digits
+                    //long.
+
+                    if(mPulseString.length()>3){
+                        pulseEditText.setError(getString(R.string.max_alert));
+                        ToneGenerator toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 100);
+                        toneG.startTone(ToneGenerator.TONE_SUP_CONGESTION, 200);
+                        return;
+
+                    }
+
+                    mPulse = Integer.parseInt(mPulseString);
 
                     mDescription = descriptionEditText.getText().toString();
 
-                    // Make Description exactly 15 characters long.
+                    // Make Description exactly 40 characters long.
 
                     int descLength = mDescription.length();
 

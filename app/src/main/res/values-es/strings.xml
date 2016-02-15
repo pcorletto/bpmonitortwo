@@ -42,5 +42,6 @@
     <string name="no_readings_data">No hay lecturas almacenadas que mostrar</string>
     <string name="weekly_reading_store_button">STORE THIS WEEK\'S READINGS</string>
     <string name="display_past_weeks_button">DISPLAY PAST WEEKS\' READINGS</string>
+    <string name="author_string">Developed by Peter R. Corletto, 2016</string>
 
 </resources>

@@ -7,7 +7,7 @@
     <string name="systolic_prompt">SYS</string>
     <string name="diastolic_prompt">DIA</string>
     <string name="pulse_prompt">PULSE</string>
-    <string name="description_prompt">DESC</string>
+    <string name="description_prompt">COMMENTS (Optional) 40 char max</string>
     <string name="hide_keyboard">>>></string>
     <string name="report_on_day">Report</string>
     <string name="last_reading_label">Last Reading:</string>
@@ -61,7 +61,8 @@
     <string name="diastolic_reading">diastolic_reading</string>
     <string name="recommendations">recommendations</string>
     <string name="title_activity_report">ReportActivity</string>
-    <string name="report_on_day_label">Please enter any activities or circumstances that you experienced today, prior to taking your blood pressure reading, that could have influenced your reading.</string>
     <string name="store_day_report_button">STORE DAY REPORT</string>
     <string name="report_on_day_string">report_on_day</string>
+    <string name="author_string">This App Was Developed by Peter R. Corletto, 2016</string>
+    <string name="under_construction">Feature still under construction</string>
 </resources>

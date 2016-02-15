@@ -213,7 +213,8 @@
         android:layout_alignRight="@+id/readingCountTextView"
         android:layout_alignStart="@+id/lastSystolicEditText"
         android:layout_toLeftOf="@+id/lastSystolicEditText"
-        android:layout_toStartOf="@+id/lastSystolicEditText"/>
+        android:layout_toStartOf="@+id/lastSystolicEditText"
+        android:gravity="center_horizontal"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -242,7 +243,7 @@
         android:layout_height="wrap_content"
         android:text="@string/pulse_prompt"
         android:textSize="20sp"
-        android:textColor="#ff5641ff"
+        android:textColor="@android:color/holo_green_dark"
         android:id="@+id/pulseTextView"
         android:layout_alignBottom="@+id/diastolicTextView"
         android:layout_toRightOf="@+id/diastolicEditText"
@@ -253,10 +254,20 @@
         android:layout_height="wrap_content"
         android:text="@string/description_prompt"
         android:id="@+id/descriptionTextView"
-        android:textSize="20sp"
-        android:textColor="#ff5641ff"
-        android:layout_below="@+id/descriptionEditText"
-        android:layout_alignLeft="@+id/lastDiastolicEditText"
-        android:layout_alignStart="@+id/lastDiastolicEditText"/>
+        android:textSize="14sp"
+        android:textColor="@android:color/holo_green_dark"
+        android:layout_below="@+id/hideButton"
+        android:layout_toRightOf="@+id/editText"
+        android:layout_toEndOf="@+id/editText"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/author_string"
+        android:id="@+id/textView"
+        android:layout_below="@+id/lastReadingLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:gravity="right"/>
 
 </RelativeLayout>

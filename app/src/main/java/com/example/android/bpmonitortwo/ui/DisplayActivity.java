@@ -121,14 +121,28 @@ public class DisplayActivity extends ListActivity {
 
                 }
 
+                else { // If all 7 days have been stored, or full week keeper:
 
+
+                    Toast.makeText(DisplayActivity.this, getString(R.string.under_construction),
+                            Toast.LENGTH_LONG).show();
+
+                }
 
             }
         });
 
+        // OnClickListener for "Display Past Weeks' Readings" button
 
+        holder.displayPastWeeksBtn = (Button) findViewById(R.id.displayPastWeeksBtn);
 
-
+        holder.displayPastWeeksBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(DisplayActivity.this, getString(R.string.under_construction),
+                        Toast.LENGTH_LONG).show();
+            }
+        });
 
 
 
@@ -175,6 +189,7 @@ public class DisplayActivity extends ListActivity {
         public TextView diastolicLabel;
         public ImageView diastolicStatusImageView;
         public Button storeThisWeekReadings;
+        public Button displayPastWeeksBtn;
 
     }
 
