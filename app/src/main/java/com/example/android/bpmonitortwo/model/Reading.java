@@ -13,12 +13,23 @@ public class Reading implements Parcelable {
     private String mDateTime;
     private String mReportOnDay;
 
-    public String getRecommendations() {
-        return mRecommendations;
+    public Reading (int systolic, int diastolic, String dateTime, String reportOnDay){
+
+        this.setSystolic(systolic);
+        this.setDiastolic(diastolic);
+        mBPStatus = this.getBPStatus(systolic, diastolic);
+        this.setDateAndTime(dateTime);
+        this.setReportOnDay(reportOnDay);
+
     }
 
-    public void setRecommendations(String recommendations) {
-        mRecommendations = recommendations;
+    public Reading (int systolic, int diastolic, String dateTime){
+
+        this.setSystolic(systolic);
+        this.setDiastolic(diastolic);
+        mBPStatus = this.getBPStatus(systolic, diastolic);
+        this.setDateAndTime(dateTime);
+
     }
 
     public String getReportOnDay() {
@@ -33,7 +44,6 @@ public class Reading implements Parcelable {
     private String mBPStatus;
     private String mSystolicBPStatus;
     private String mDiastolicBPStatus;
-    private String mRecommendations;
 
 
     private BPStatus bpStatus = new BPStatus();
@@ -99,14 +109,6 @@ public class Reading implements Parcelable {
 
     }
 
-    public Reading (int systolic, int diastolic, String dateTime){
-
-        this.setSystolic(systolic);
-        this.setDiastolic(diastolic);
-        mBPStatus = this.getBPStatus(systolic, diastolic);
-        this.setDateAndTime(dateTime);
-
-    }
 
     public void setSystolic(int s){
         mSystolic = s;

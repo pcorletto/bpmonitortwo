@@ -6,7 +6,9 @@
     <string name="enter_bp_reading_prompt">Enter Blood Pressure Reading</string>
     <string name="systolic_prompt">SYS</string>
     <string name="diastolic_prompt">DIA</string>
-    <string name="hide_keyboard">Hide</string>
+    <string name="pulse_prompt">PULSE</string>
+    <string name="description_prompt">DESC</string>
+    <string name="hide_keyboard">>>></string>
     <string name="report_on_day">Report</string>
     <string name="last_reading_label">Last Reading:</string>
     <string name="bp_check_status_button_prompt">Check individual day reading</string>
@@ -44,13 +46,22 @@
     <string name="clear_readings_confirm_message">CLEAR ALL READINGS STORED THIS WEEK</string>
     <string name="clear_readings_confirm_question">Are you sure you want to clear them?</string>
     <string name="display_array">display_array</string>
-    <string  name="on_back_pressed_alert">Press again to close app</string>
+    <string name="on_back_pressed_alert">Press again to close app</string>
     <string name="no_readings_data">There are no readings to display</string>
     <string name="is_empty">is_empty</string>
     <string name="AVG_SYS">avg_systolic</string>
     <string name="AVG_DIA">avg_diastolic</string>
     <string name="weekly_reading_store_button">STORE THIS WEEK\'S READINGS</string>
     <string name="display_past_weeks_button">DISPLAY PAST WEEKS\' READINGS</string>
-
-
+    <string name="title_activity_check">CheckActivity</string>
+    <string name="systolic_check_message">Your systolic blood pressure is: </string>
+    <string name="diastolic_check_message">Your diastolic blood pressure is: </string>
+    <string name="recommendations_label">RECOMMENDATIONS</string>
+    <string name="systolic_reading">systolic_reading</string>
+    <string name="diastolic_reading">diastolic_reading</string>
+    <string name="recommendations">recommendations</string>
+    <string name="title_activity_report">ReportActivity</string>
+    <string name="report_on_day_label">Please enter any activities or circumstances that you experienced today, prior to taking your blood pressure reading, that could have influenced your reading.</string>
+    <string name="store_day_report_button">STORE DAY REPORT</string>
+    <string name="report_on_day_string">report_on_day</string>
 </resources>

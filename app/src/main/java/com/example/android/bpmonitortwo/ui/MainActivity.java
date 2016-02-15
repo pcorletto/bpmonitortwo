@@ -42,9 +42,9 @@ public class MainActivity extends ActionBarActivity {
             systolicEditText, diastolicEditText;
     private TextView readingCountTextView;
     private Button bpCheckButton, storeReadingButton, displayReadingsButton, resetUIButton,
-            clearWeeklyReadingsButton, hideButton;
+            clearWeeklyReadingsButton, hideButton, reportOnDayButton;
     private int mSystolic, mDiastolic;
-    private String bpCheckStatus;
+    private String bpCheckStatus, mRecommendations, mDayReport;
     private Reading mReading = new Reading();
     private Keeper mWeeklyReadingKeeper = new Keeper();
     private int mIndex;
@@ -86,6 +86,7 @@ public class MainActivity extends ActionBarActivity {
         readingCountTextView = (TextView) findViewById(R.id.readingCountTextView);
         clearWeeklyReadingsButton = (Button) findViewById(R.id.clearWeeklyReadingsButton);
         hideButton = (Button) findViewById(R.id.hideButton);
+
 
         // Retrieve any previous reading stored on the SharedPreferences file
 
@@ -180,9 +181,28 @@ public class MainActivity extends ActionBarActivity {
 
                 // Check whether pressure is low, normal or high, and
                 // display the check status in a toast
+
+
+
                 bpCheckStatus = mReading.getBPStatus(mSystolic, mDiastolic);
-                Toast.makeText(MainActivity.this, getString(R.string.your_blood_pressure_is) +
-                        bpCheckStatus, Toast.LENGTH_LONG).show();
+
+
+                // Transmit the mSystolic and mDiastolic values to the CheckActivity
+                // via an Intent.
+
+                mRecommendations = getRecommendations(mReading.getSystolicBPStatus(mSystolic), mReading.getDiastolicBPStatus(mDiastolic));
+
+                Intent intent = new Intent(MainActivity.this, CheckActivity.class);
+
+                intent.putExtra(getString(R.string.systolic_reading), mSystolic);
+                intent.putExtra(getString(R.string.diastolic_reading), mDiastolic);
+                intent.putExtra(getString(R.string.recommendations), mRecommendations);
+                startActivity(intent);
+
+
+
+                //Toast.makeText(MainActivity.this, getString(R.string.your_blood_pressure_is) +
+                  //      bpCheckStatus, Toast.LENGTH_LONG).show();
 
                 // Store the last reading on a SharedPreferences file so that it can be
                 // displayed even after the app is stopped.
@@ -328,7 +348,7 @@ public class MainActivity extends ActionBarActivity {
 
                     mWeeklyReadingKeeper.reloadArray(mSystolicDiastolicString, mIndex);
 
-                    mWeeklyReadingKeeper.setAReading(mSystolic, mDiastolic, getCurrentDateAndTime());
+                    mWeeklyReadingKeeper.setAReading(mSystolic, mDiastolic, getCurrentDateAndTime(), mDayReport);
 
                     // Store the last reading on a SharedPreferences file so that it can be
                     // displayed even after the app is stopped.
@@ -623,6 +643,8 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
+
+
     }
 
     public boolean anySystolicAbnormalReadings(int s){
@@ -746,6 +768,84 @@ public class MainActivity extends ActionBarActivity {
         return ciMonthDayTime;
 
 
+    }
+
+    public String getRecommendations(String systolicBPStatus, String diastolicBPStatus) {
+
+        if((systolicBPStatus.equals("high")&&(diastolicBPStatus.equals("low")))||(systolicBPStatus.equals("low")&&(diastolicBPStatus.equals("high")))){
+
+            mRecommendations = "Your systolic is high and your diastolic low, or your systolic is low" +
+                    " and your diastolic is high. This is a very unusual and dangerous combination. Please" +
+                    " see your primary care physician and/or cardiologist immediately!";
+
+        }
+
+        else if(systolicBPStatus.equals("low")||(diastolicBPStatus.equals("low"))){
+
+            mRecommendations = "Treatment depends on the type of hypotension you have and the severity of your signs and symptoms. The goal of treatment is to bring blood pressure back to normal to relieve signs and symptoms. Another goal is to manage any underlying condition causing the hypotension.\n" +
+                    "\n" +
+                    "Your response to treatment depends on your age, overall health, and strength. It also depends on how easily you can stop, start, or change medicines.\n" +
+                    "\n" +
+                    "In a healthy person, low blood pressure without signs or symptoms usually isn't a problem and needs no treatment.\n" +
+                    "\n" +
+                    "If you have signs or symptoms of hypotension, you should sit or lie down right away. Put your feet above the level of your heart. If your signs or symptoms don't go away quickly, you should seek medical care.\n" +
+                    "\n" +
+                    "Orthostatic Hypotension\n" +
+                    "\n" +
+                    "Many treatments are available for orthostatic hypotension. If you have this condition, your doctor may advise making lifestyle changes, such as:\n" +
+                    "\n" +
+                    "Drinking plenty of fluids, such as water or sports drinks that contain nutrients like sodium and potassium.\n" +
+                    "Drinking little or no alcohol.\n" +
+                    "Standing up slowly.\n" +
+                    "Not crossing your legs while sitting.\n" +
+                    "Slowly increasing the amount of time you sit up if you've been immobile for a long time because of a medical condition. The term \"immobile\" refers to not being able to move around very much.\n" +
+                    "Eating small, low-carbohydrate meals if you have postprandial hypotension (a form of orthostatic hypotension).\n" +
+                    "Talk with your doctor about using compression stockings. These stockings apply pressure to your lower legs. The pressure helps move blood throughout your body.\n" +
+                    "\n" +
+                    "If medicine is causing your low blood pressure, your doctor may change the medicine or adjust the dose you take.\n" +
+                    "\n" +
+                    "Several medicines are used to treat orthostatic hypotension. These medicines, which raise blood pressure, include fludrocortisone and midodrine.\n" +
+                    "\n" +
+                    "Neurally Mediated Hypotension\n" +
+                    "\n" +
+                    "If you have neurally mediated hypotension (NMH), you may need to make lifestyle changes. These may include:\n" +
+                    "\n" +
+                    "Avoiding situations that trigger symptoms, such as standing for long periods. Unpleasant, upsetting, or scary situations also can trigger symptoms.\n" +
+                    "Drinking plenty of fluids, such as water or sports drinks that contain nutrients like sodium and potassium.\n" +
+                    "Increasing your salt intake (as your doctor advises).\n" +
+                    "Learning to recognize symptoms that occur before fainting and taking action to raise your blood pressure. For example, sitting down and putting your head between your knees or lying down can help raise blood pressure.\n" +
+                    "If medicine is causing your hypotension, your doctor may change the medicine or adjust the dose you take. He or she also may prescribe medicine to treat NMH.\n" +
+                    "\n" +
+                    "Severe Hypotension Linked to Shock\n" +
+                    "\n" +
+                    "Shock is a life-threatening emergency. People who have shock need prompt treatment from medical personnel. Call 9–1–1 right away.\n" +
+                    "\n" ;
+                    //  + "References: http://www.ncbi.nlm.nih.gov/pubmedhealth/PMH0063034/";
+
+        }
+
+        else if(systolicBPStatus.equals("high")||(diastolicBPStatus.equals("high"))){
+
+            mRecommendations = "Monitoring your blood pressure is not a treatment for high blood" +
+                    " pressure. To help treat your high blood pressure, you may need to eat a " +
+                    "healthy diet, maintain a healthy weight, get enough exercise, and not smoke. " +
+                    "Your doctor may also suggest medicines to help lower your blood pressure. " +
+                    "Regularly measuring your blood pressure is just one part of a plan to lower " +
+                    "your high blood pressure." + "\n\n" +
+                    "REFERENCES: http://www.ncbi.nlm.nih.gov/pubmedhealth/PMH0041082/#conssmbp.s3";
+        }
+
+        else if(systolicBPStatus.equals("normal")&&(diastolicBPStatus.equals("normal"))){
+
+            mRecommendations = "Eat a low-salt diet. Always check your food labels for sodium intake.\n" +
+                    "Do not smoke.\n" +
+                    "Get plenty of sleep.\n" +
+                    "Eat a balanced diet, low in saturated fat and high in fiber, fruits and vegetables.\n" +
+                    "Avoid stressful situations or a stressful lifestyle.";
+
+        }
+
+        return mRecommendations;
     }
 
 

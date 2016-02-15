@@ -50,12 +50,12 @@ public class Keeper {
     }
 
 
-    public void setAReading(int s, int d, String dateTime){
+    public void setAReading(int s, int d, String dateTime, String reportOnDay){
         if(mIndex==7){
             //Keeper is full. Do not store any more readings...
         }
         else {
-            mReading[mIndex] = new Reading(s, d, dateTime);
+            mReading[mIndex] = new Reading(s, d, dateTime, reportOnDay);
 
             mIndex++;
         }

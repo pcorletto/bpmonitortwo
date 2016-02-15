@@ -72,11 +72,11 @@
         android:id="@+id/systolicTextView"
         android:textSize="20sp"
         android:textColor="#ff3620ff"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:layout_below="@+id/systolicEditText"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="35dp"
-        android:layout_marginStart="35dp"/>
+        android:layout_alignParentStart="true"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -85,9 +85,9 @@
         android:id="@+id/diastolicTextView"
         android:textSize="20sp"
         android:textColor="#ff5641ff"
-        android:layout_alignBaseline="@+id/systolicTextView"
-        android:layout_alignBottom="@+id/systolicTextView"
-        android:layout_centerHorizontal="true"/>
+        android:layout_below="@+id/textView2"
+        android:layout_toRightOf="@+id/textView2"
+        android:layout_toEndOf="@+id/textView2"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -98,7 +98,8 @@
         android:gravity="center_horizontal"
         android:layout_alignBottom="@+id/textView2"
         android:layout_toStartOf="@+id/textView2"
-        android:layout_toLeftOf="@+id/textView2"/>
+        android:layout_alignRight="@+id/systolicTextView"
+        android:layout_alignEnd="@+id/systolicTextView"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -107,11 +108,10 @@
         android:ems="10"
         android:id="@+id/diastolicEditText"
         android:gravity="center_horizontal"
-        android:layout_alignBottom="@+id/reportOnDayButton"
-        android:layout_toLeftOf="@+id/reportOnDayButton"
-        android:layout_alignLeft="@+id/lastSystolicEditText"
-        android:layout_alignStart="@+id/lastSystolicEditText"
-         />
+        android:layout_above="@+id/diastolicTextView"
+        android:layout_toRightOf="@+id/textView2"
+        android:layout_toStartOf="@+id/pulseEditText"
+        android:layout_toLeftOf="@+id/pulseEditText"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -121,8 +121,8 @@
         android:textSize="40sp"
         android:gravity="center_horizontal"
         android:layout_below="@+id/enterBPTextView"
-        android:layout_toLeftOf="@+id/diastolicEditText"
-        android:layout_toStartOf="@+id/diastolicEditText"/>
+        android:layout_toRightOf="@+id/systolicTextView"
+        android:layout_toEndOf="@+id/systolicTextView"/>
 
     <Button
         android:layout_width="match_parent"
@@ -134,12 +134,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/bpCheckButton"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal">
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -159,7 +154,7 @@
         android:id="@+id/readingCountTextView"
         android:layout_toRightOf="@id/readingCountMessage"/>
 
-    </LinearLayout>
+
 
 
     <Button
@@ -170,17 +165,10 @@
         android:id="@+id/hideButton"
         android:layout_below="@+id/enterBPTextView"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/report_on_day"
-        android:id="@+id/reportOnDayButton"
-        android:layout_alignBottom="@+id/hideButton"
-        android:layout_toLeftOf="@+id/hideButton"
-        android:layout_toStartOf="@+id/hideButton"/>
+        android:layout_alignParentEnd="true"
+        android:background="@android:color/holo_green_light"
+        android:textSize="36sp"
+        android:textColor="#ff5641ff"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -198,34 +186,76 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lastSystolicEditText"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/lastReadingLabel"
-        android:layout_toStartOf="@+id/reportOnDayButton"
-        android:layout_toLeftOf="@+id/reportOnDayButton"
-        android:gravity="center_horizontal"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="/"
-        android:id="@+id/textView"
-        android:textSize="21sp"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/enterBPTextView"
         android:gravity="center_horizontal"
-        android:paddingTop="12dp"
-        android:layout_alignLeft="@+id/reportOnDayButton"
-        android:layout_alignStart="@+id/reportOnDayButton"/>
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@id/readingCountTextView"
+        android:layout_toRightOf="@+id/lastReadingLabel"
+        android:layout_toStartOf="@+id/editText"/>
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lastDiastolicEditText"
         android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/hideButton"
-        android:layout_alignEnd="@+id/hideButton"
-        android:layout_toRightOf="@+id/textView"
-        android:layout_toEndOf="@+id/textView"
-        android:gravity="center_horizontal"/>
+        android:layout_toRightOf="@id/editText"
+
+        android:gravity="center_horizontal"
+        android:layout_toLeftOf="@+id/hideButton"
+        android:layout_toStartOf="@+id/hideButton"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pulseEditText"
+        android:layout_alignTop="@+id/descriptionEditText"
+        android:layout_alignLeft="@+id/lastSystolicEditText"
+        android:layout_alignRight="@+id/readingCountTextView"
+        android:layout_alignStart="@+id/lastSystolicEditText"
+        android:layout_toLeftOf="@+id/lastSystolicEditText"
+        android:layout_toStartOf="@+id/lastSystolicEditText"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/descriptionEditText"
+
+        android:layout_alignTop="@+id/diastolicEditText"
+        android:layout_toLeftOf="@+id/hideButton"
+        android:layout_toEndOf="@+id/pulseEditText"
+        android:layout_toRightOf="@+id/pulseEditText"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:text="/"
+        android:layout_alignBaseline="@+id/lastSystolicEditText"
+        android:layout_alignBottom="@+id/lastSystolicEditText"
+        android:layout_toRightOf="@+id/readingCountMessage"
+        android:layout_toEndOf="@+id/readingCountMessage"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pulse_prompt"
+        android:textSize="20sp"
+        android:textColor="#ff5641ff"
+        android:id="@+id/pulseTextView"
+        android:layout_alignBottom="@+id/diastolicTextView"
+        android:layout_toRightOf="@+id/diastolicEditText"
+        android:layout_toEndOf="@+id/diastolicEditText"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/description_prompt"
+        android:id="@+id/descriptionTextView"
+        android:textSize="20sp"
+        android:textColor="#ff5641ff"
+        android:layout_below="@+id/descriptionEditText"
+        android:layout_alignLeft="@+id/lastDiastolicEditText"
+        android:layout_alignStart="@+id/lastDiastolicEditText"/>
 
 </RelativeLayout>
