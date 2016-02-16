@@ -268,6 +268,38 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
+        pulseEditText.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                pulseEditText.setTextColor(Color.BLACK);
+                pulseEditText.requestFocus();
+                InputMethodManager imm =(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                if(imm != null) {
+                    imm.showSoftInput(pulseEditText, 0);
+                }
+                pulseEditText.setText("");
+                return true;
+            }
+        });
+
+        descriptionEditText.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                descriptionEditText.setTextColor(Color.BLACK);
+                descriptionEditText.requestFocus();
+                InputMethodManager imm =(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                if(imm != null) {
+                    imm.showSoftInput(descriptionEditText, 0);
+                }
+                descriptionEditText.setText("");
+                return true;
+            }
+        });
+
+
+
         storeReadingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -361,7 +393,7 @@ public class MainActivity extends ActionBarActivity {
 
                     String builderString = "";
 
-                    for(int i=0; i<(15-descLength) ; i++){
+                    for(int i=0; i<(40 - descLength) ; i++){
 
                         builderString = builderString + " ";
 

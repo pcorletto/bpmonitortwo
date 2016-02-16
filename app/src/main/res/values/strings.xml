@@ -65,4 +65,16 @@
     <string name="report_on_day_string">report_on_day</string>
     <string name="author_string">This App Was Developed by Peter R. Corletto, 2016</string>
     <string name="under_construction">Feature still under construction</string>
+    <string name="title_activity_details">DetailsActivity</string>
+    <string name="details_title">Details about your blood pressure reading</string>
+    <string name="date_time_label">Date and Time measured:</string>
+    <string name="systolic_label">Systolic reading:</string>
+    <string name="diastolic_label">Diastolic reading:</string>
+    <string name="mmhg_label">mmHg</string>
+    <string name="pulse_label">Pulse rate:</string>
+    <string name="bps_label">Beats/sec</string>
+    <string name="systolic_status_label">Your systolic pressure was:</string>
+    <string name="diastolic_status_label">Your diastolic pressure was:</string>
+    <string name="comments_label">That day, you commented the following:</string>
+
 </resources>

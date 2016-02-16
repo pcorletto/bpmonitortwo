@@ -28,10 +28,10 @@ public class DisplayActivity extends ListActivity {
     private Button returnMainScreenButton;
     private ListView listView;
     private Reading[] mReadings;
-    private int mIndex;
+    private int mSystolic, mDiastolic, mPulse, mIndex;
     private String mAvgSystolic;
     private String mAvgDiastolic;
-    private String mSystolicBPStatus, mDiastolicBPStatus;
+    private String mDateTime, mSystolicBPStatus, mDiastolicBPStatus, mComments;
 
 
 
@@ -90,12 +90,37 @@ public class DisplayActivity extends ListActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(DisplayActivity.this, "Reading taken on " + mReadings[position].getDateAndTime(),
-                        Toast.LENGTH_LONG).show();
 
-                Toast.makeText(DisplayActivity.this, "On that day you reported that " + mReadings[position].getDescription()
-                                + "\n\n" + "Your pulse rate was " + mReadings[position].getPulse(),
-                        Toast.LENGTH_LONG).show();
+                // Get the values of the variables to be passed to DetailsActivity via an Intent
+
+                mDateTime = mReadings[position].getDateAndTime();
+                mSystolic = mReadings[position].getSystolic();
+                mDiastolic = mReadings[position].getDiastolic();
+                mPulse = mReadings[position].getPulse();
+                mSystolicBPStatus = mReadings[position].getSystolicBPStatus(mSystolic);
+                mDiastolicBPStatus = mReadings[position].getDiastolicBPStatus(mDiastolic);
+                mComments = mReadings[position].getDescription();
+
+                Intent intent = new Intent(DisplayActivity.this, DetailsActivity.class);
+
+                intent.putExtra(getString(R.string.date_time_label), mDateTime);
+                intent.putExtra(getString(R.string.systolic_label), mSystolic);
+                intent.putExtra(getString(R.string.diastolic_label), mDiastolic);
+                intent.putExtra(getString(R.string.pulse_label), mPulse);
+                intent.putExtra(getString(R.string.systolic_status_label), mSystolicBPStatus);
+                intent.putExtra(getString(R.string.diastolic_status_label), mDiastolicBPStatus);
+                intent.putExtra(getString(R.string.comments_label), mComments);
+
+                startActivity(intent);
+                
+
+
+                //Toast.makeText(DisplayActivity.this, "Reading taken on " + mReadings[position].getDateAndTime(),
+                       // Toast.LENGTH_LONG).show();
+
+                //Toast.makeText(DisplayActivity.this, "On that day you reported that " + mReadings[position].getDescription()
+                               // + "\n\n" + "Your pulse rate was " + mReadings[position].getPulse(),
+                        //Toast.LENGTH_LONG).show();
             }
         });
 

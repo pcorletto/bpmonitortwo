@@ -26,23 +26,23 @@ public class Keeper {
             // Extract the diastolic and systolic values from the readings
             // from the stored mSystolicDiastolicString string passed in from MainActivity.
 
-            String systolic = passedInString.substring((38*i),(38*i+3));
+            String systolic = passedInString.substring((63*i),(63*i+3));
 
             int s = Integer.parseInt(systolic);
 
-            String diastolic = passedInString.substring((38*i+3),(38*i+6));
+            String diastolic = passedInString.substring((63*i+3),(63*i+6));
 
             int d = Integer.parseInt(diastolic);
 
-            String pulse = passedInString.substring((38*i+6), (38*i+9));
+            String pulse = passedInString.substring((63*i+6), (63*i+9));
 
             int p = Integer.parseInt(pulse);
 
-            String dateAndTime = passedInString.substring((38*i+9),(38*i+23));
+            String dateAndTime = passedInString.substring((63*i+9),(63*i+23));
 
-            String description1 = passedInString.substring((38*i+23), (38*i+37));
+            String description1 = passedInString.substring((63*i+23), (63*i+62));
 
-            char eol = passedInString.charAt(38*i+37);
+            char eol = passedInString.charAt(63*i+62);
 
             String description = description1 + eol;
 
