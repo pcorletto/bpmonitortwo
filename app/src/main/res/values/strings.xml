@@ -7,11 +7,11 @@
     <string name="systolic_prompt">SYS</string>
     <string name="diastolic_prompt">DIA</string>
     <string name="pulse_prompt">PULSE</string>
-    <string name="description_prompt">COMMENTS (Optional) 40 char max</string>
+    <string name="description_prompt">COMMENTS 40 char max</string>
     <string name="hide_keyboard">>>></string>
     <string name="report_on_day">Report</string>
     <string name="last_reading_label">Last Reading:</string>
-    <string name="bp_check_status_button_prompt">Check individual day reading</string>
+    <string name="bp_check_status_button_prompt">Check individual day reading: Recommendations</string>
     <string name="store_button_prompt">Store Individual day Reading</string>
     <string name="display_stored_readings_button_prompt">Display Stored weekly Readings</string>
     <string name="reset_UI_button_prompt">Re-enter individual reading</string>
@@ -76,5 +76,7 @@
     <string name="systolic_status_label">Your systolic pressure was:</string>
     <string name="diastolic_status_label">Your diastolic pressure was:</string>
     <string name="comments_label">That day, you commented the following:</string>
+    <string name="not_full_yet">You still cannot store the week. It has been less than 7 readings! Store </string>
+    <string name="more">more</string> 
 
 </resources>

@@ -141,8 +141,8 @@ public class DisplayActivity extends ListActivity {
                     ToneGenerator toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 100);
                     toneG.startTone(ToneGenerator.TONE_SUP_CONGESTION, 200);
 
-                   Toast.makeText(DisplayActivity.this, "You still cannot store the week. It has been less than 7 readings! Store "
-                           + (7 - mIndex) + " more.", Toast.LENGTH_LONG).show();
+                   Toast.makeText(DisplayActivity.this, getString(R.string.not_full_yet) +
+                           + (7 - mIndex) + getString(R.string.more), Toast.LENGTH_LONG).show();
 
                 }
 
