@@ -149,6 +149,9 @@ public class DisplayActivity extends ListActivity {
                 else { // If all 7 days have been stored, or full week keeper:
 
 
+                    ToneGenerator toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 100);
+                    toneG.startTone(ToneGenerator.TONE_SUP_CONGESTION, 200);
+
                     Toast.makeText(DisplayActivity.this, getString(R.string.under_construction),
                             Toast.LENGTH_LONG).show();
 
@@ -164,6 +167,10 @@ public class DisplayActivity extends ListActivity {
         holder.displayPastWeeksBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                ToneGenerator toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 100);
+                toneG.startTone(ToneGenerator.TONE_SUP_CONGESTION, 200);
+                
                 Toast.makeText(DisplayActivity.this, getString(R.string.under_construction),
                         Toast.LENGTH_LONG).show();
             }
