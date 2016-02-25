@@ -11,11 +11,11 @@
     <string name="hide_keyboard">>>></string>
     <string name="report_on_day">Report</string>
     <string name="last_reading_label">Last Reading:</string>
-    <string name="bp_check_status_button_prompt">Check individual day reading: Recommendations</string>
-    <string name="store_button_prompt">Store Individual day Reading</string>
-    <string name="display_stored_readings_button_prompt">Display Stored weekly Readings</string>
-    <string name="reset_UI_button_prompt">Re-enter individual reading</string>
-    <string name="clear_weekly_readings">Clear weekly readings</string>
+    <string name="bp_check_status_button_prompt">CHECK INDIVIDUAL DAY READING</string>
+    <string name="store_button_prompt">STORE DAY READING</string>
+    <string name="display_stored_readings_button_prompt">DISPLAY WEEKLY READINGS</string>
+    <string name="reset_UI_button_prompt">RE-ENTER DAY READING</string>
+    <string name="clear_weekly_readings">CLEAR WEEKLY READINGS</string>
     <string name="action_settings">Settings</string>
     <string name="BP_PREF_FILE">BP_PREF_FILE</string>
     <string name="SYSTOLIC_READING">SYSTOLIC_READING</string>
@@ -77,6 +77,7 @@
     <string name="diastolic_status_label">Your diastolic pressure was:</string>
     <string name="comments_label">That day, you commented the following:</string>
     <string name="not_full_yet">You still cannot store the week. It has been less than 7 readings! Store </string>
-    <string name="more">more</string> 
+    <string name="more">more</string>
+    <string name="hide_keyboard_prompt">Hide Keyboard</string>
 
 </resources>
