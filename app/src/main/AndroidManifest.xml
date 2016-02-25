@@ -38,11 +38,11 @@
         <activity
             android:name=".ui.DetailsActivity"
             android:label="@string/title_activity_details"
-            android:parentActivityName=".ui.DisplayActivity"
+            android:parentActivityName=".ui.MainActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.android.bpmonitortwo.ui.DisplayActivity" />
+                android:value="com.example.android.bpmonitortwo.ui.MainActivity" />
         </activity>
     </application>
 

@@ -180,7 +180,7 @@
         android:textColor="#ff5641ff"
         android:layout_toRightOf="@+id/systolicTextView"
         android:layout_toEndOf="@+id/systolicTextView"
-        android:layout_weight="0.39"
+        android:layout_weight="0.51"
         android:gravity="center_horizontal"/>
 
     <TextView
@@ -273,9 +273,10 @@
 
             <Button
                 style="?android:attr/buttonStyleSmall"
-                android:layout_width="120dp"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:text="@string/bp_check_status_button_prompt"
+                android:textColor="#ff3620ff"
                 android:id="@+id/bpCheckButton"
                 android:background="@android:color/holo_green_light"/>
 
@@ -288,24 +289,27 @@
 
             <Button
                 style="?android:attr/buttonStyleSmall"
-                android:layout_width="120dp"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:text="@string/reset_UI_button_prompt"
+                android:textColor="#ff3620ff"
                 android:id="@+id/resetUIButton"
                 android:background="@android:color/holo_red_light"/>
 
             <Button
-                android:layout_width="120dp"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:text="@string/store_button_prompt"
                 android:id="@+id/storeReadingButton"
+                android:textColor="#ff3620ff"
                 android:background="@android:color/holo_blue_light"/>
 
             <Button
-                android:layout_width="120dp"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:text="@string/display_stored_readings_button_prompt"
                 android:id="@+id/displayReadingsButton"
+                android:textColor="#ff3620ff"
                 android:background="@android:color/holo_green_light"/>
         </TableRow>
 
@@ -315,9 +319,10 @@
             android:gravity="center_horizontal">
 
             <Button
-                android:layout_width="120dp"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:text="@string/clear_weekly_readings"
+                android:textColor="#ff3620ff"
                 android:id="@+id/clearWeeklyReadingsButton"
                 android:background="@android:color/holo_red_light"/>
 

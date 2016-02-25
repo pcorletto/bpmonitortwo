@@ -7,13 +7,13 @@
     <string name="systolic_prompt">SYS</string>
     <string name="diastolic_prompt">DIA</string>
     <string name="pulse_prompt">PULSE</string>
-    <string name="description_prompt">COMMENTS 40 char max</string>
+    <string name="description_prompt">COMMENTS 40 characters max</string>
     <string name="hide_keyboard">>>></string>
     <string name="report_on_day">Report</string>
     <string name="last_reading_label">Last Reading:</string>
     <string name="bp_check_status_button_prompt">CHECK INDIVIDUAL DAY READING</string>
     <string name="store_button_prompt">STORE DAY READING</string>
-    <string name="display_stored_readings_button_prompt">DISPLAY WEEKLY READINGS</string>
+    <string name="display_stored_readings_button_prompt">DISPLAY WEEK READINGS</string>
     <string name="reset_UI_button_prompt">RE-ENTER DAY READING</string>
     <string name="clear_weekly_readings">CLEAR WEEKLY READINGS</string>
     <string name="action_settings">Settings</string>

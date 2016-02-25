@@ -7,15 +7,15 @@
     <string name="systolic_prompt">SIS</string>
     <string name="diastolic_prompt">DIA</string>
     <string name="pulse_prompt">PULSO</string>
-    <string name="description_prompt">NOTAS 40 letras máx</string>
+    <string name="description_prompt">COMENTARIOS 40 caracteres máximo</string>
     <string name="hide_keyboard">>>></string>
     <string name="report_on_day">Report</string>
-    <string name="last_reading_label">últim lectura</string>
-    <string name="bp_check_status_button_prompt">Chequea lectura día individual: Recomendaciones</string>
+    <string name="last_reading_label">última lectura</string>
+    <string name="bp_check_status_button_prompt">CHEQUEA LECTURA DIA INDIVIDUAL</string>
     <string name="store_button_prompt">Guarda lectura día individual</string>
-    <string name="display_stored_readings_button_prompt">Muestra lecturas semanales guardadas</string>
-    <string name="reset_UI_button_prompt">Vuelve a entrar lectura individual</string>
-    <string name="clear_weekly_readings">Borra lecturas semanales</string>
+    <string name="display_stored_readings_button_prompt">MUESTRA LECTURAS SEMANALES</string>
+    <string name="reset_UI_button_prompt">VUELVE ENTRAR LECTURA INDIVIDUAL</string>
+    <string name="clear_weekly_readings">BORRA LECTURAS SEMANALES</string>
     <string name="action_settings">Settings</string>
     <string name="BP_PREF_FILE">BP_PREF_FILE</string>
     <string name="SYSTOLIC_READING">SYSTOLIC_READING</string>
@@ -77,6 +77,7 @@
     <string name="diastolic_status_label">Tu presión diastólica estaba:</string>
     <string name="comments_label">ése día, tú comentaste lo siguiente:</string>
     <string name="not_full_yet">Todavía no puedes guardar la semana. ¡Hay menos de 7 lecturas! Guarda </string>
-    <string name="more">más</string> 
+    <string name="more">más</string>
+    <string name="hide_keyboard_prompt">Esconde teclado</string> 
 
 </resources>
